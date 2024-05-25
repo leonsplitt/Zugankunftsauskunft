@@ -29,7 +29,7 @@ def format_time(iso_time: str, current_time: datetime) -> str:
     deltatime = time - current_time
     deltaminutes = int(deltatime.total_seconds() / 60)
 
-    if deltaminutes < 0:
+    if deltaminutes <= 0:
         return "now"
     elif deltaminutes < 15:
         return f"in {deltaminutes} minutes"
