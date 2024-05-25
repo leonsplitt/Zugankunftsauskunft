@@ -15,10 +15,14 @@ def show_stop(stop_id: int):
         show_departure(d, current_time)
 
 
-def show_departure(departure, current_time: datetime):
+def show_departure(departure: dict[str, Any], current_time: datetime):
     when = format_time(departure["when"], current_time)
-    direction = departure["destination"]["name"].removesuffix(" (Berlin)")
-    name = departure["line"]["name"]
+
+    direction: str = departure["destination"]["name"]
+    direction = direction.split("(Berlin)")[0].strip()
+
+    name: str = departure["line"]["name"]
+
     print(f"Hello! The {name} to {direction} is coming {when}")
 
 
