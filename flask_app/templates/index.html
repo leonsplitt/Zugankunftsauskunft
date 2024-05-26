@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berlin Transport Departures</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upcoming Departures</h1>
+    {% for stop, departures in stop_departures.items() %}
+        <h2>{{ stop }}</h2>
+        <ul>
+            {% for when, direction, name in departures %}
+                <li>Hello! The {{ name }} to {{ direction }} is coming {{ when }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
